@@ -2,6 +2,11 @@
 
 Python crypto tools designed for ease of use and stability instead of guaranteed performance or cryptographic security.
 
+## Installation
+```shell
+pip install cryptools
+```
+
 ## Usage
 
 ### Hash

@@ -66,9 +66,9 @@ def sha1(m, output='hex'):
 
     hh = (h0 << 128) | (h1 << 96) | (h2 << 64) | (h3 << 32) | h4
     
-    if digest == 'hex':
+    if output == 'hex':
         hh = format(hh, 'x')
-    elif digest == 'bytes':
+    elif output == 'bytes':
         hh = hh.to_bytes(20, byteorder='big')
     
     return hh

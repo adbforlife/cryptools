@@ -1,9 +1,6 @@
 # Cipher
 from .cipher.cipher_repeating_key_xor import repeating_xor
 from .cipher.aes import (
-    generate_key,
-    pad,
-    unpad,
     aes_ecb_encrypt,
     aes_ecb_decrypt,
     aes_cbc_encrypt,
@@ -16,11 +13,11 @@ from .cipher.xor import xor
 # Hash
 from .hash.sha1 import sha1
 
-from .attacks.attack_single_byte_xor import (
+from .attack.attack_single_byte_xor import (
     single_byte_xor,
     single_byte_xor_exlude_nonprintables
 )
-from .attacks.attack_repeating_key_xor import (
+from .attack.attack_repeating_key_xor import (
     repeating_xor_guess_key_size,
     repeating_xor_guess_key
 )
@@ -31,9 +28,10 @@ from .prng.mt19937 import (
     rand
 )
 
+from .util.pad import pad, unpad
+
 __all__ = [
     'repeating_xor',
-    'generate_key',
     'pad',
     'unpad',
     'xor',

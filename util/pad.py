@@ -1,7 +1,7 @@
 def pad(m, style='pkcs7'):
     if style == 'pkcs7':
         block_size = 16
-        num_remaining = block_size - len(data) % block_size
+        num_remaining = block_size - len(m) % block_size
         m += bytes([num_remaining]) * num_remaining
     elif style == 'md':
         ml = len(m) * 8

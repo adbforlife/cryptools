@@ -1,45 +1,29 @@
-# Cipher
-from .cipher.cipher_repeating_key_xor import repeating_xor
-from .cipher.aes import (
-    generate_key,
-    aes_ecb_encrypt,
-    aes_ecb_decrypt,
-    aes_cbc_encrypt,
-    aes_cbc_decrypt,
-    aes_ctr_encrypt,
-    aes_ctr_decrypt
-)
-from .cipher.rsa import (
-    rsa_encrypt
-    rsa_decrypt
-)
-from .cipher.xor import xor
+import os
+import sys
+sys.path.append(os.path.dirname(os.path.realpath(__file__))+'/..')
+from cryptools import *
 
-# Hash
-from .hash.sha1 import sha1
-
-# Attack
-from .attack.attack_single_byte_xor import (
-    single_byte_xor,
-    single_byte_xor_exlude_nonprintables
-)
-from .attack.attack_repeating_key_xor import (
-    repeating_xor_guess_key_size,
-    repeating_xor_guess_key
-)
-
-# PRNG
-from .prng.mt19937 import (
-    mt_init,
-    seed,
-    rand
-)
-
-from .util.pad import pad, unpad
+from binascii import hexlify, unhexlify
 
 if __name__ == '__main__':
-    assert(sha1('adb') == 'fa1143dea12bffbbc1aa99d5da2ec811d63b5127')
+    # Ciphers
+    # AES
+    key = 'cryptoolstestkey'
+    assert(aes_ecb_encrypt('adb', key) == '4547e8e48086047f0e704728f86f1273')
+    assert(aes_ecb_decrypt(
+        unhexlify(b'4547e8e48086047f0e704728f86f1273'), 
+        key, output='bytes') == b'adb')
+    assert(aes_cbc_encrypt('adb', key, key) == 'ea9d645d6a733dfb92604de5eae16a45')
+    assert(aes_cbc_decrypt(
+        unhexlify(b'ea9d645d6a733dfb92604de5eae16a45'),
+        key, key, output='bytes') == b'adb')
+    # RSA
     
+
+    # HASH
+    assert(sha1('adb') == 'fa1143dea12bffbbc1aa99d5da2ec811d63b5127')
+    assert(sha1(b'adb') == 'fa1143dea12bffbbc1aa99d5da2ec811d63b5127')
+
     assert(rand() == 0xD091BB5C)
     assert(rand() == 0x22AE9EF6)
     seed(251)
@@ -49,7 +33,4 @@ if __name__ == '__main__':
     seed(213)
     assert(rand() == 0x37EACD2B)
     assert(rand() == 0x956EB4E4)
-
-    
-
 

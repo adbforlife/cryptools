@@ -6,6 +6,7 @@ from cryptools import *
 from binascii import hexlify, unhexlify
 
 if __name__ == '__main__':
+    print(aes_ecb_decrypt(b'EG\xe8\xe4\x80\x86\x04\x7f\x0epG(\xf8o\x12s', 'cryptoolstestkey')) # b'adb'
     # Ciphers
     # AES
     key = 'cryptoolstestkey'

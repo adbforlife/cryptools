@@ -59,4 +59,3 @@ def rand():
 	y ^= (y >> l)
 	mt_index += 1
 	return mt_word_mask & y
-

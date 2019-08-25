@@ -1,3 +1,11 @@
+def sha1_pad(m, ml=-1):
+	if ml < 0:
+		ml = len(m) * 8
+	m += b'\x80'
+	m += bytes((55 - ml // 8) % 64)
+	m += ml.to_bytes(8, byteorder='big')
+	return m
+
 def sha1(m, digest='hex'):
 	# 32 bit word, rotate by num bits
 	def rotl(word, num):
@@ -12,10 +20,7 @@ def sha1(m, digest='hex'):
 	h3 = 0x10325476
 	h4 = 0xC3D2E1F0
 
-	ml = len(m) * 8
-	m += b'\x80'
-	m += bytes((56 - len(m)) % 64)
-	m += ml.to_bytes(8, byteorder='big')
+	m = sha1_pad(m)
 	
 	chunks = [m[i:i+64] for i in range(0,len(m),64)]
 	for chunk in chunks:
@@ -67,7 +72,7 @@ def sha1(m, digest='hex'):
 	hh = (h0 << 128) | (h1 << 96) | (h2 << 64) | (h3 << 32) | h4
 	
 	if digest == 'hex':
-		hh = format(hh, 'x')
+		hh = format(hh, '040x')
 	elif digest == 'bytes':
 		hh = hh.to_bytes(20, byteorder='big')
 	

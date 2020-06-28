@@ -15,7 +15,8 @@ from .cipher.rsa import (
 from .cipher.xor import xor
 
 # Hash
-from .hash.sha1 import sha1
+from .sha1 import sha1
+from .md4 import md4
 
 from .attack.attack_single_byte_xor import (
     single_byte_xor,
@@ -51,6 +52,7 @@ __all__ = [
     'repeating_xor_guess_key',
 
     'sha1',
+    'md4',
 
     'mt_init',
     'seed',

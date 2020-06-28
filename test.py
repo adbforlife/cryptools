@@ -1,5 +1,6 @@
 import os
 import sys
+from binascii import unhexlify
 sys.path.append(os.path.dirname(os.path.realpath(__file__))+'/..')
 from cryptools import *
 
@@ -25,6 +26,8 @@ if __name__ == '__main__':
     # HASH
     assert(sha1('adb') == 'fa1143dea12bffbbc1aa99d5da2ec811d63b5127')
     assert(sha1(b'adb') == 'fa1143dea12bffbbc1aa99d5da2ec811d63b5127')
+    assert(md4(b'') == unhexlify(b'31d6cfe0d16ae931b73c59d7e0c089c0'))
+    assert(md4(b'adb') == unhexlify(b'f431890473794144d657cf396088a473'))
 
     assert(rand() == 0xD091BB5C)
     assert(rand() == 0x22AE9EF6)

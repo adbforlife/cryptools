@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: cryptools
-Version: 0.0.5
+Version: 0.0.6
 Summary: easy-to-use implementations for ciphers, hashes, prngs, and attacks
 Home-page: https://github.com/adbforlife/cryptools.git
 Author: adbforlife

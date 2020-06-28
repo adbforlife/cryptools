@@ -5,7 +5,7 @@ with open('README.md', 'r') as fh:
 
 setuptools.setup(
     name='cryptools',
-    version='0.0.4',
+    version='0.0.5',
     author='adbforlife',
     author_email='adbforlife2018@gmail.com',
     description='easy-to-use implementations for ciphers, hashes, prngs, and attacks',

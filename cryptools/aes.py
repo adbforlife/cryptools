@@ -3,7 +3,7 @@ from random import randint
 from functools import reduce
 from binascii import hexlify
 from .xor import xor
-from ..util.pad import pad, unpad
+from .util.pad import pad, unpad
 
 def aes_ecb_encrypt(m, key, padding=True, output='hex'):
     if isinstance(m, str):

@@ -8,6 +8,7 @@ test.py
 cryptools/__init__.py
 cryptools/md4.py
 cryptools/sha1.py
+cryptools/xor.py
 cryptools.egg-info/PKG-INFO
 cryptools.egg-info/SOURCES.txt
 cryptools.egg-info/dependency_links.txt
@@ -21,7 +22,6 @@ cryptools/cipher/__init__.py
 cryptools/cipher/aes.py
 cryptools/cipher/cipher_repeating_key_xor.py
 cryptools/cipher/rsa.py
-cryptools/cipher/xor.py
 cryptools/prng/__init__.py
 cryptools/prng/mt19937.py
 cryptools/util/__init__.py

@@ -59,7 +59,4 @@ __all__ = [
     'mt_init',
     'seed',
     'rand',
-
-    'is_english',
-    'chi2_pvals'
 ]

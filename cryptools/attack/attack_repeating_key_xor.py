@@ -1,6 +1,6 @@
 from base64 import b64decode
 from .attack_single_byte_xor import single_byte_xor_exlude_nonprintables
-from ..cipher.cipher_repeating_key_xor import repeating_xor
+from ..cipher_repeating_key_xor import repeating_xor
 
 def get_hamming_distance(byte_string1, byte_string2):
 	if len(byte_string1) != len(byte_string2):

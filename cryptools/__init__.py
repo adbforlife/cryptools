@@ -35,6 +35,8 @@ from .prng.mt19937 import (
 
 from .util.pad import pad, unpad
 
+from .classical.freq_analysis import is_english, chi2_pvals
+
 __all__ = [
     'repeating_xor',
     'pad',
@@ -56,5 +58,8 @@ __all__ = [
 
     'mt_init',
     'seed',
-    'rand'
+    'rand',
+
+    'is_english',
+    'chi2_pvals'
 ]
